@@ -1,5 +1,7 @@
 book:
   chapters:
-    - part: "Developer Guidelines"
+    - part: "Course Materials"
       chapters:
-        - materials/00-template.md
+        - materials/01-operationalisation.rmd
+        - materials/02-replication.rmd
+        - materials/03-case-study.rmd

@@ -6,5 +6,6 @@ website:
         # Only edit from this line down
         - section: "Developer Guidelines"
           contents:
-            - materials/01-render_guidelines.md
-            - materials/02-content_guidelines.md
+            - materials/01-operationalisation.md
+            - materials/02-replication.md
+            - materials/03-case-study.md
