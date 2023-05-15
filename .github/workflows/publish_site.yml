@@ -19,6 +19,12 @@ jobs:
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
+        
+      - name: Install Rmarkdown
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with: 
+          packages:
+            any::rmarkdown
 
       - name: Render Site
         uses: quarto-dev/quarto-actions/render@v2
