@@ -2,6 +2,6 @@ book:
   chapters:
     - part: "Course Materials"
       chapters:
-        - materials/01-operationalisation.rmd
-        - materials/02-replication.rmd
-        - materials/03-case-study.rmd
+        - materials/01-operationalisation.qmd
+        - materials/02-replication.qmd
+        - materials/03-case-study.qmd

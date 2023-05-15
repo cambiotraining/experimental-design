@@ -1,0 +1,120 @@
+---
+title: "Independence and Replication"
+output: html_document
+date: "2023-05-12"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+This section of the course considers the concepts of biological vs technical replication and pseudoreplication. To illustrate them, two example datasets are given.
+
+## Exercise 1 - Flower petals
+
+This dataset contains three variables: `shade`, which refers to the degree of shading that the plant received while growing; `petals`, the number of petals recorded on an individual flower of that plant; and `plant`, the numerical ID assigned to the plant.
+
+```{r, results='hide', message=FALSE}
+flowers <- read_csv("data/flowers.csv")
+```
+
+Having read in the dataset, we can start by doing some visualisation and analysis. Let's have a look at how the petal number differs across the shade conditions, and then run a one-way ANOVA to compare the groups statistically.
+
+```{r}
+# construct a boxplot, grouped by shade
+flowers %>%
+  ggplot(aes(x=shade, y=petals)) +
+  geom_boxplot()
+
+# run a one-way ANOVA
+lm_flowers <- lm(petals ~ shade, data=flowers)
+anova(lm_flowers)
+```
+
+The plot and one-way ANOVA are both pretty convincing. It looks as if there are most petals on flowers in full sun, and the least petals on flowers in full shade, with partial shade somewhere in the middle.
+
+However, you may have noticed something about this dataset - namely, that multiple measurements of the `petals` variable have been made per plant. Or, to put it another way, though we have *biological* replicates by having measured from 12 different plants, our `petals` measurements appear to be *technical* replicates.
+
+This dataset is a prime example of **pseudoreplication**.
+
+Let's adapt this dataset, by finding the mean petal count per plant.
+
+```{r, message=FALSE}
+mean_flowers <- flowers %>%
+  group_by(plant, shade) %>%
+  summarise(petals=mean(petals))
+
+mean_flowers
+```
+
+Now, we have a much clearer *n* = 12. What happens if we re-run our analyses, with these mean values?
+
+```{r}
+# construct a new boxplot
+mean_flowers %>%
+  ggplot(aes(x=shade, y=petals)) +
+  geom_boxplot()
+
+# run a new ANOVA
+lm_mean <- lm(petals ~ shade, data=mean_flowers)
+anova(lm_mean)
+```
+
+If anything, the resulting boxplot looks *more* convincing than it did before. However, we don't get the same picture with the ANOVA. The p-value is far larger than before, to the point where this analysis is no longer significant. The reason for this is simple - previously, we ran an analysis with a false *n* = 60, which gave enough power to detect an effect. However, using the true *n* = 12, we discover that all that statistical power was an illusion or artefact, and with just 12 plants, we can see only the beginning of a trend.
+
+## Exercise 2 - Cabbages
+
+Each row in the cabbages dataset refers to an individual cabbage, harvested by a farmer who has been trying to find the optimium fertiliser in his six fields. There are four variables: response variable `weight`, the weight of individual cabbages; `N_rate`, the rate of nitrogen fertiliser applied to the field in kilograms per metre; `fertiliser`, a categorical variable describing whether the fertiliser was liquid or granular; and `field`, the ID of the field that the cabbage was harvested from.
+
+Start by reading in the dataset. It's also important that we tell R to treat the `N_rate` variable as an ordinal variable, or factor, rather than as a continuous numerical variable.
+
+```{R, message=FALSE}
+cabbages <- read_csv("data/cabbages.csv")
+
+cabbages <- cabbages %>%
+  mutate(N_rate = as.factor(N_rate))
+```
+
+The farmer is interested in knowing whether nitrogen rate and fertiliser type affects the weight of harvested cabbages in his fields.
+
+On the face of it, you may therefore start by fitting a linear model with these two variables as predictors (since they're both categorical, that's a two-way ANOVA):
+
+```{R}
+lm_cabbage <- lm(weight ~ N_rate*fertiliser, data=cabbages)
+anova(lm_cabbage)
+```
+
+This indicates that there is a significant interaction between `N_rate` and `fertiliser`. To help us visualise the direction of that effect, we can plot the data as follows:
+
+```{R}
+cabbages %>%
+  ggplot(aes(x=N_rate, y=weight, colour=fertiliser)) +
+  geom_boxplot()
+```
+
+Together with the ANOVA table, you might be able to make some recommendations to the farmer about the optimum fertiliser programme for his cabbages.
+
+But - is this a sensible approach? Do we trust the conclusions?
+
+To help you answer that question, let's visualise the effect of the `field` variable, and its relationship to other variables, with a plot:
+
+```{R}
+cabbages %>%
+  ggplot(aes(y=weight, x=field, colour=fertiliser, size=N_rate)) +
+  geom_point()
+```
+
+This is rudimentary, but it hopefully helps to illustrate one of two problems with the approach taken here: our different treatments/conditions in the `fertiliser` and `N_rate` variables have been applied, wholesale, to entire fields. Which makes sense, practically speaking - it's hard to see how you would do any differently - but it does mean that there are issues with treating individual cabbages as independent observations, rather than technical replicates.
+
+Have a think about how you could actually investigate this question, using the dataset presented here. What is our actual value of *n*? (Or put another way: which are our biological replicates?) What kind of model might you fit instead of the linear model fitted above?
+
+## Summary
+
+::: {.callout-tip}
+#### Key Points
+
+- Biological replicates increase *n*, while technical replicates do not
+- The value of *n* can have a meaningful impact on the results of significance tests
+- Pseudoreplication in a sample can lead to a researcher drawing the wrong conclusions
+:::
