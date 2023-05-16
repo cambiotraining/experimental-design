@@ -23,11 +23,13 @@ Having read in the dataset, we can start by doing some visualisation and analysi
 
 ```{r}
 # construct a boxplot, grouped by shade
+
 flowers %>%
   ggplot(aes(x=shade, y=petals)) +
   geom_boxplot()
 
 # run a one-way ANOVA
+
 lm_flowers <- lm(petals ~ shade, data=flowers)
 anova(lm_flowers)
 ```
@@ -52,11 +54,13 @@ Now, we have a much clearer *n* = 12. What happens if we re-run our analyses, wi
 
 ```{r}
 # construct a new boxplot
+
 mean_flowers %>%
   ggplot(aes(x=shade, y=petals)) +
   geom_boxplot()
 
 # run a new ANOVA
+
 lm_mean <- lm(petals ~ shade, data=mean_flowers)
 anova(lm_mean)
 ```

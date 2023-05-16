@@ -112,6 +112,7 @@ What happens if we remove those values, and look at the relationship between `di
 
 ```{R}
 # use the filter function to retain only the rows where the staff member cycles
+
 productivity_cycle <- productivity %>%
   filter(cycle=="yes")
 ```
