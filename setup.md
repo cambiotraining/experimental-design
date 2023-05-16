@@ -16,7 +16,7 @@ The data used in these materials is provided as a zip file.
 Download and unzip the folder to your Desktop to follow along with the materials.
 
 <!-- Note for Training Developers: add the link to 'href' -->
-<a href="https://github.com/cambiotraining/experimental-design/blob/main/course_files/data/data.zip">
+<a href="https://github.com/cambiotraining/experimental-design/raw/main/course_files/data/data.zip">
   <button class="btn"><i class="fa fa-download"></i> Download</button>
 </a>
 
