@@ -49,7 +49,7 @@ productivity %>%
 
 # construct a one-way ANOVA, treating projects as a categorical variable
 
-lm_1 <- lm(mean_hrs ~ projects, data=productivity)
+lm_1 <- lm(mean_hrs ~ as.factor(projects), data=productivity)
 anova(lm_1)
 ```
 
