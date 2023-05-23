@@ -25,12 +25,12 @@ Having read in the dataset, we can start by doing some visualisation and analysi
 # construct a boxplot, grouped by shade
 
 flowers %>%
-  ggplot(aes(x=shade, y=petals)) +
+  ggplot(aes(x = shade, y = petals)) +
   geom_boxplot()
 
 # run a one-way ANOVA
 
-lm_flowers <- lm(petals ~ shade, data=flowers)
+lm_flowers <- lm(petals ~ shade, data = flowers)
 anova(lm_flowers)
 ```
 
@@ -45,7 +45,7 @@ Let's adapt this dataset, by finding the mean petal count per plant.
 ```{r, message=FALSE}
 mean_flowers <- flowers %>%
   group_by(plant, shade) %>%
-  summarise(petals=mean(petals))
+  summarise(petals = mean(petals))
 
 mean_flowers
 ```
@@ -56,12 +56,12 @@ Now, we have a much clearer *n* = 12. What happens if we re-run our analyses, wi
 # construct a new boxplot
 
 mean_flowers %>%
-  ggplot(aes(x=shade, y=petals)) +
+  ggplot(aes(x = shade, y = petals)) +
   geom_boxplot()
 
 # run a new ANOVA
 
-lm_mean <- lm(petals ~ shade, data=mean_flowers)
+lm_mean <- lm(petals ~ shade, data = mean_flowers)
 anova(lm_mean)
 ```
 
@@ -85,7 +85,7 @@ The farmer is interested in knowing whether nitrogen rate and fertiliser type af
 On the face of it, you may therefore start by fitting a linear model with these two variables as predictors (since they're both categorical, that's a two-way ANOVA):
 
 ```{R}
-lm_cabbage <- lm(weight ~ N_rate*fertiliser, data=cabbages)
+lm_cabbage <- lm(weight ~ N_rate * fertiliser, data = cabbages)
 anova(lm_cabbage)
 ```
 
@@ -93,7 +93,7 @@ This indicates that there is a significant interaction between `N_rate` and `fer
 
 ```{R}
 cabbages %>%
-  ggplot(aes(x=N_rate, y=weight, colour=fertiliser)) +
+  ggplot(aes(x = N_rate, y = weight, colour = fertiliser)) +
   geom_boxplot()
 ```
 
@@ -105,7 +105,8 @@ To help you answer that question, let's visualise the effect of the `field` vari
 
 ```{R}
 cabbages %>%
-  ggplot(aes(y=weight, x=field, colour=fertiliser, size=N_rate)) +
+  ggplot(aes(y = weight, x = field, 
+             colour = fertiliser, size = N_rate)) +
   geom_point()
 ```
 
