@@ -1,5 +1,5 @@
 ---
-title: "Experimental Design for Biostatisticians"
+title: "Experimental Design"
 author: "Vicki Hodgson"
 date: today
 number-sections: false
@@ -55,7 +55,7 @@ About the authors:
 
 **Vicki Hodgson** \
   _Affiliation_: Bioinformatics Training Facility, University of Cambridge  
-  _Roles_: writing - original draft; conceptualisation; coding
+  _Roles_: writing - original draft; conceptualisation; coding; creation of synthetic datasets
 
 
 <!--## Acknowledgements

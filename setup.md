@@ -20,6 +20,8 @@ Download and unzip the folder to your Desktop to follow along with the materials
   <button class="btn"><i class="fa fa-download"></i> Download</button>
 </a>
 
+These files contain synthetic datasets that have been created specifically for the course.
+
 ## Setup
 
 ### R and RStudio
