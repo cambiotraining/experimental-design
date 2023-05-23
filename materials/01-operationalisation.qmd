@@ -6,7 +6,6 @@ date: "2023-05-12"
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-install.packages("tidyverse")
 library(tidyverse)
 ```
 
@@ -58,6 +57,8 @@ What does this tell you about these two sets of variables, which (in theory at l
 
 If so, hold that thought.
 
+#### Assessing the effect of cycling on productivity
+
 The next step is to run some exploratory analyses. Since we're not going to reporting these data in any kind of paper or article, and the whole point is to look at different versions of the same analysis with different variables, we won't worry about multiple comparison correction this time.
 
 When treating `mean_hrs` as our response variable, we can use standard linear models approach, since this variable is continous.
@@ -85,7 +86,20 @@ anova(lm_2)
 
 This shows us that while `cycle` does not significantly predict `mean_hrs`, `distance` does. (If you had some concerns about the `distance` variable earlier, continue to hold that thought.)
 
-When treating `projects` as our response variable, we now have to use a GLM - specifically, we'll use Poisson regression, since `projects` is a count variable. If you aren't familiar with GLMs or Poisson regression, don't worry - the output is very similar to a linear model!
+When treating `projects` as our response variable, we now have to use a GLM - specifically, we'll use Poisson regression, since `projects` is a count variable. If you aren't familiar with GLMs or Poisson regression, you can expand the box below to find out a bit more (including a link to further materials that will give you more detail).
+
+:::{.callout-note collapse="true"}
+## Generalised linear models and Poisson regression
+
+Standard linear models require that your response or outcome variable be continuous. However, your variable might instead be a probability (e.g., a coin flip, or a proportion), or a count variable, which follow a binomial or Poisson distribution respectively (rather than a normal/Gaussian distribution). To account for this, generalised linear models allow the fitted linear model to be related to the outcome variable via some link function, commonly a log or logit function. Model parameters are also estimated slightly differently; as opposed to the ordinary least squares approach we use in linear regression, GLMs make use of something called maximum likelihood estimation.
+
+Poisson regression is a specific type of GLM, which uses a log function; it's also sometimes referred to as a log-linear model. We use Poisson regression in scenarios where we have an outcome variable that is count data, i.e., data that only takes non-negative integer values, or when modelling contingency tables.
+
+If you'd like to read more or learn how to fit GLMs yourself, you can find additional course materials [here](https://cambiotraining.github.io/camstats/poisson-regression-count-response.html).
+:::
+
+
+If GLMs don't sound interesting to you right now, then don't worry - the output is very similar to your typical linear model!
 
 ```{R}
 productivity %>%
