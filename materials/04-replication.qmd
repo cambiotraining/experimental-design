@@ -114,6 +114,24 @@ This is rudimentary, but it hopefully helps to illustrate one of two problems wi
 
 Have a think about how you could actually investigate this question, using the dataset presented here. What is our actual value of *n*? (Or put another way: which are our biological replicates?) What kind of model might you fit instead of the linear model fitted above?
 
+## Criteria for true independent replication
+
+Confusing our biological and technical replicates leads to pseudoreplication, as discussed above. So, how do we make sure that we truly do have biological replicates?
+
+For a replicate to qualify as a biological, rather than technical replicate, it needs to meet three criteria for independence. These are:
+
+**1) Independent randomisation to different treatment conditions**
+
+There should be no systematic bias in how biological replicates are allocated to conditions. This means that allocations can't be made on the basis of sample characteristics. In the first example above, the flowers weren't randomly assigned to different shade conditions - they were assigned on the basis of which plant they were growing on, meaning that they weren't independent of one another.
+
+**2) The experimental intervention must be applied independently**
+
+This is to ensure that any technical error is random. In the second example above, if the farmer incorrectly measures the nitrogren he's adding to one of his fields, this will affect more than just a single cabbage - it will likely affect a whole group of them, if not the entire field.
+
+**3) Data points/biological replicates must not influence each other**
+
+Whether they are from the same or different conditions, biological replicates shouldn't have an affect on one another (at least not *before* you've collected the data you need!). This may involve human participants conferring about the study, or in an experiment that involves cell culture, may involve organisms competing with one another for resources and affecting the rate of growth.
+
 ## Summary
 
 ::: {.callout-tip}

@@ -2,6 +2,10 @@ book:
   chapters:
     - part: "Course Materials"
       chapters:
-        - materials/01-operationalisation.qmd
-        - materials/02-replication.qmd
-        - materials/03-case-study.qmd
+        - materials/01-research-questions.qmd
+        - materials/02-operationalisation.qmd
+        - materials/03-confounds.qmd
+        - materials/04-replication.qmd
+        - materials/05-power-analysis.qmd
+        - materials/06-piloting.qmd
+        - materials/07-case-study.qmd

@@ -1,0 +1,74 @@
+---
+title: "Pilot Studies"
+output: html_document
+date: "2023-05-12"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+If you're planning an experiment, but still have some important open questions about the protocol, desired sample size or planned analysis, then you may wish to run a pilot study in advance of conducting the experiment. A "pilot study" is a surprisingly difficult thing to define, since its exact nature can differ depending on what you're trying to get out of the pilot.
+
+## What is a pilot study?
+
+A small-scale, preliminary study that is conducted ahead of the main experiment, in order to inform the final experimental design in some way. A pilot study can be considered a "trial run" of the final experiment. 
+
+## Purpose(s) of a pilot study
+
+There are different reasons to run a pilot study, and they might depend on what field of research you're in. These reasons can include (but are not necessarily limited to!):
+
+#### Testing and refining your protocol or methodology 
+This may include things like calibrating equipment or testing out a new behavioural task or set of stimuli. It's also likely to involve spotting errors or problems that you would otherwise have needed to deal with during the main experiment - perhaps your instructions to participants or fellow researchers are unclear and need refining, or perhaps the lab stocks of the media you need are too low. 
+
+Note that this does *not* mean that you should go into your pilot study without a protocol or plan. You should have already worked out as many of the details as possible, such as how you plan to operationalise your variables, whether there are any known factors to control, and an idea of the type of analysis you might run. The more detailed your plan is before you pilot, the easier it will be to make refinements!
+
+#### Training researchers 
+This ties in closely with the point above. The experiment may be the first time that you or other researchers have used certain protocols or equipment before, and research involves lots of skills that take practice - whether that involves interacting with patients, learning how to safely use potentially dangerous equipment, or complicated/precise bench work.
+
+#### Demonstrating feasibility & exploring possible results
+Sometimes, a pilot can serve as a low-risk way to check whether something is likely to work at all. For instance: is it possible to get high enough resolution images of this phenomenon? Is the rare patient population willing to take part in this sort of study? Will this plant species grow at all in our greenhouses?
+
+If you're lucky, your pilot study may also give you some idea as to the likely results that a larger study will give you; more on this in the point below. But it's worth emphasising at this stage - this does not mean you should use a pilot study to perform hypothesis testing of your overall research question!
+
+#### Calculating an effect size for power analysis
+Arguably a contentious thing to do? Some people say that pilot studies are too prone to type I/II error, because of noise, to work as suitable estimates of effect size?
+
+Will often instead use the smallest scientifically meaningful effect size. Calculating that is a whole experience in itself
+
+But your pilot study could supplement prior studies/experiments on the subject to help guide your estimate
+
+
+
+## Pilot sample
+
+How big should it be? This is a trade-off between it actually being a pilot, and  
+
+::: {.callout-note collapse="true}
+## An important note about keeping your pilot sample separate
+
+It's quite common to see researchers including their pilot sample in the main dataset, once they conduct the larger experiment. This is an easy temptation to fall for, but it's often best to avoid doing so.
+
+Firstly, your pilot study will almost certainly be imperfect in some way. If you have been refining or updating your protocol or training researchers as part of your pilot, then the data quality may be lower. Worse still, differences between the pilot and main protocol might introduce a confounding variable, if those differences have a meaningful impact on your response variable.
+
+And finally, if you've used your pilot sample to calculate an effect size, it's statistically a poor choice to fold those data in. Messes with the likelihood of error?
+:::
+
+## Iterative improvements
+
+
+If your study has human participants, you can also gather feedback from them during/after the study, to help refine your protocol.
+
+
+
+
+
+## Summary
+
+::: {.callout-tip}
+#### Key Points
+
+- Error, significance, effect size and power are all related to one another, such that you can calculate the desired sample size *a priori*
+- Multiple factors will 
+:::
