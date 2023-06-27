@@ -124,7 +124,7 @@ anova(lm_flowers)
 Next, we run a one-way ANOVA:
 
 ```{python}
-# construct a one-way ANOVA, treating projects as a categorical variable
+# construct a one-way ANOVA
 pg.anova(dv = "petals",
          between = "shade",
          data = flowers_py,
@@ -196,7 +196,7 @@ anova(lm_mean)
 Next, we run a one-way ANOVA:
 
 ```{python}
-# construct a one-way ANOVA, treating projects as a categorical variable
+# construct a one-way ANOVA
 pg.anova(dv = "petals",
          between = "shade",
          data = mean_flowers_py,
