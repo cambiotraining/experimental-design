@@ -54,7 +54,7 @@ In short: what you're trying to find out, shouldn't be possible to find out else
 
 **Complex and insightful**
 
-By "complex", we don't necessarily mean that the research question has to be difficult or convoluted for the sake of it - but it should have more than a simple yes or no answer. There are situations where a yes or no answer forms *part* of your overall conclusion - e.g., can tartigrades survive in the vacuum of space? Will compound X react with compound Y? Can humans remember their dreams? - but in all of these situations, a well-designed experiment should also give additional information, like the degree to which a particular phenomenon is observed, or details about the conditions under which it occurs. If you're going to the effort of designing and conducting an experiment, you may as well be getting some detailed insight!
+By "complex", we don't necessarily mean that the research question has to be difficult or convoluted for the sake of it - but it should have more than a simple yes or no answer. There are situations where a yes or no answer forms *part* of your overall conclusion - e.g., can tardigrades survive in the vacuum of space? Will compound X react with compound Y? Can humans remember their dreams? - but in all of these situations, a well-designed experiment should also give additional information, like the degree to which a particular phenomenon is observed, or details about the conditions under which it occurs. If you're going to the effort of designing and conducting an experiment, you may as well be getting some detailed insight!
 
 ## Some examples
 
