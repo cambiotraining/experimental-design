@@ -1,7 +1,6 @@
 ---
 title: "Operationalisating Variables"
 output: html_document
-date: "2023-05-12"
 ---
 
 ```{r setup, include=FALSE}
