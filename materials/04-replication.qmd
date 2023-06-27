@@ -157,6 +157,8 @@ mean_flowers
 
 ```{python}
 mean_flowers_py = flowers_py.groupby(['plant', 'shade']).mean().reset_index()
+
+mean_flowers_py
 ```
 :::
 
