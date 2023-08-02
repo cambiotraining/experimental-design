@@ -18,8 +18,8 @@ source(file = "setup_files/setup.R")
 ```{python}
 #| echo: false
 #| message: false
-import shutup;shutup.please()
 exec(open('setup_files/setup.py').read())
+import shutup;shutup.please()
 ```
 
 This section of the course covers how we define and measure variables, and how that can affect our analyses. This is illustrated with an example dataset. If you want to do the exercises yourself, make sure to check if you have all the required libraries installed.
