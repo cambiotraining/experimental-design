@@ -9,3 +9,4 @@ book:
         - materials/05-power-analysis.qmd
         - materials/06-piloting.qmd
         - materials/07-case-study.qmd
+        - materials/08-simulating-datasets.qmd
